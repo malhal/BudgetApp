@@ -33,8 +33,7 @@ struct BudgetDetailView: View {
         }
         
         TransactionListView(fetchRequest: FetchRequest(fetchRequest: budgetCategory.transactionsFetchRequest))
-//            Spacer()
-//
+//          Spacer()
         }
         .padding()
         .onAppear {
@@ -53,8 +52,6 @@ struct AddTransactionConfig {
         self.context.parent = parentContext
         self.transaction = Transaction(context: self.context)
     }
-    
-    
 }
 
 struct AddTransactionView: View {
@@ -75,7 +72,6 @@ struct AddTransactionView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .disabled(!isFormValid)
-
             }
         }.frame(maxHeight: 200)
     }

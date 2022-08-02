@@ -21,6 +21,8 @@ struct AddBudgetCategoryView: View {
     @State private var errorMessage = ""
     @State private var errorMessages: [String] = []
     
+    let onSave: () -> Void
+    
     private func saveBudgetCategory() {
 
 //        messages = []
@@ -40,6 +42,7 @@ struct AddBudgetCategoryView: View {
         
         do {
             try childViewContext.save()
+            onSave()
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
