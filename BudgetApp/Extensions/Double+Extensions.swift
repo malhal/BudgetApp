@@ -7,14 +7,13 @@
 
 import Foundation
 
-extension Double {
+extension NumberFormatter {
     
-    func formatAsCurrency() -> String {
-        
+    static var currency: NumberFormatter = {        
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        return formatter.string(from: NSNumber(value: self)) ?? ""
-        
-    }
+        //return formatter.string(from: NSNumber(value: self)) ?? ""
+        return formatter
+    }()
     
 }

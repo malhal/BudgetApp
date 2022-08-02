@@ -7,26 +7,19 @@
 
 import SwiftUI
 
-enum Route: Hashable {
-    case detail(BudgetCategory)
-}
+//enum Route: Hashable {
+//    case detail(BudgetCategory)
+//}
 
 @main
 struct BudgetAppApp: App {
     
-    @StateObject private var model: Model = Model()
+    let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                ContentView()
-                    .navigationDestination(for: Route.self) { route in
-                        switch route {
-                            case .detail(let category):
-                                BudgetDetailView(budgetCategory: category)
-                        }
-                    }
-            }.environmentObject(model)
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
